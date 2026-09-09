@@ -15,11 +15,56 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+struct Node {
+    int data;
+    struct Node *next;
+};
+
+struct Node *head = NULL;
+
+void display() {
+    struct Node *p = head;
+
+    if (p == NULL) {
+        printf("Stack is empty\n");
+        return;
+    }
+
+    printf("Stack elements are:\n");
+
+    while (p != NULL) {
+        printf("%d\n", p->data);
+        p = p->next;
+    }
+}
+
+int main() {
+    struct Node n1, n2, n3;
+
+    n1.data = 10;
+    n1.next = &n2;
+
+    n2.data = 20;
+    n2.next = &n3;
+
+    n3.data = 30;
+    n3.next = NULL;
+
+    head = &n1;
+
+    display();
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+<img width="371" height="114" alt="image" src="https://github.com/user-attachments/assets/e26704b6-d5da-4c09-a50e-f03272dcf49c" />
+
 
 
 Result:
@@ -40,11 +85,60 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+struct Node {
+    int data;
+    struct Node *next;
+};
+
+struct Node *head = NULL;
+
+void pop() {
+    struct Node *p;
+
+    if (head == NULL) {
+        printf("Stack is empty\n");
+        return;
+    }
+
+    p = head;
+    printf("Popped element: %d\n", p->data);
+    head = head->next;
+}
+
+int main() {
+    struct Node n1, n2, n3;
+
+    n1.data = 10;
+    n1.next = &n2;
+
+    n2.data = 20;
+    n2.next = &n3;
+
+    n3.data = 30;
+    n3.next = NULL;
+
+    head = &n1;
+
+    pop();
+
+    printf("Stack after pop:\n");
+
+    while (head != NULL) {
+        printf("%d\n", head->data);
+        head = head->next;
+    }
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+<img width="466" height="111" alt="image" src="https://github.com/user-attachments/assets/bbce4030-52d8-47ef-bde1-8ef17eb848e3" />
+
 
 
 
@@ -64,11 +158,56 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+struct Node {
+    int data;
+    struct Node *next;
+};
+
+struct Node *front = NULL;
+
+void display() {
+    struct Node *p = front;
+
+    if (p == NULL) {
+        printf("Queue is empty\n");
+        return;
+    }
+
+    printf("Queue elements are:\n");
+
+    while (p != NULL) {
+        printf("%d\n", p->data);
+        p = p->next;
+    }
+}
+
+int main() {
+    struct Node n1, n2, n3;
+
+    n1.data = 10;
+    n1.next = &n2;
+
+    n2.data = 20;
+    n2.next = &n3;
+
+    n3.data = 30;
+    n3.next = NULL;
+
+    front = &n1;
+
+    display();
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+<img width="375" height="116" alt="image" src="https://github.com/user-attachments/assets/5bb4a495-ed39-4a6f-a112-29bd684ec26b" />
+
 
 Result:
 Thus, the program to display queue elements using linked list is verified successfully.
@@ -90,11 +229,61 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node *next;
+};
+
+struct Node *front = NULL;
+struct Node *rear = NULL;
+
+void enqueue(int value) {
+    struct Node *p;
+
+    p = (struct Node *)malloc(sizeof(struct Node));
+
+    p->data = value;
+    p->next = NULL;
+
+    if (front == NULL) {
+        front = p;
+        rear = p;
+    } else {
+        rear->next = p;
+        rear = p;
+    }
+}
+
+void display() {
+    struct Node *p = front;
+
+    printf("Queue elements are:\n");
+
+    while (p != NULL) {
+        printf("%d\n", p->data);
+        p = p->next;
+    }
+}
+
+int main() {
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+
+    display();
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+<img width="334" height="102" alt="image" src="https://github.com/user-attachments/assets/39764922-6b2e-4ab0-a3d0-975e5d2660ec" />
+
 
 Result:
 Thus, the program to insert elements in queue using linked list is verified successfully.
@@ -117,11 +306,47 @@ o	If the queue is not empty, return the data stored in the front node of the lin
 
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+struct Node {
+    int data;
+    struct Node *next;
+};
+
+struct Node *front = NULL;
+
+int peek() {
+    if (front == NULL)
+        return -1;
+
+    return front->data;
+}
+
+int main() {
+    struct Node n1, n2, n3;
+
+    n1.data = 10;
+    n1.next = &n2;
+
+    n2.data = 20;
+    n2.next = &n3;
+
+    n3.data = 30;
+    n3.next = NULL;
+
+    front = &n1;
+
+    printf("Peek element: %d\n", peek());
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+<img width="668" height="90" alt="image" src="https://github.com/user-attachments/assets/c6bd4ab6-6763-4aa5-a47c-222102b20bbf" />
+
 
 
 
