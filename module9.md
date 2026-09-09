@@ -13,11 +13,44 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+#define MAX 5
+
+int stack[MAX];
+int top = -1;
+
+void display() {
+    int i;
+
+    if (top == -1) {
+        printf("Stack is empty\n");
+        return;
+    }
+
+    printf("Stack elements are:\n");
+
+    for (i = top; i >= 0; i--)
+        printf("%d\n", stack[i]);
+}
+
+int main() {
+    stack[++top] = 10;
+    stack[++top] = 20;
+    stack[++top] = 30;
+    stack[++top] = 40;
+
+    display();
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+<img width="552" height="124" alt="image" src="https://github.com/user-attachments/assets/5497c6f2-ff37-4afd-a197-176a56187e32" />
+
 
 
 
@@ -36,11 +69,40 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+#define MAX 5
+
+float stack[MAX];
+int top = -1;
+
+void push(float value) {
+    if (top == MAX - 1) {
+        printf("Stack Overflow\n");
+        return;
+    }
+
+    stack[++top] = value;
+    printf("%.2f pushed into stack\n", value);
+}
+
+int main() {
+    float value;
+
+    printf("Enter element to push: ");
+    scanf("%f", &value);
+
+    push(value);
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+<img width="412" height="58" alt="image" src="https://github.com/user-attachments/assets/fd42d392-225a-447d-84b4-4450885f8549" />
+
 
 
 
@@ -62,11 +124,47 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+#define MAX 5
+
+int queue[MAX];
+int front = 0;
+int rear = 3;
+
+void display() {
+    int i;
+
+    if (front > rear) {
+        printf("Queue is empty\n");
+        return;
+    }
+
+    printf("Queue elements are:\n");
+
+    for (i = front; i <= rear; i++)
+        printf("%d ", queue[i]);
+
+    printf("\n");
+}
+
+int main() {
+    queue[0] = 10;
+    queue[1] = 20;
+    queue[2] = 30;
+    queue[3] = 40;
+
+    display();
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+<img width="502" height="47" alt="image" src="https://github.com/user-attachments/assets/5db9d6d7-c21a-47f3-9734-d1d1b1a361e0" />
+
 
 
 Result:
@@ -86,11 +184,41 @@ Algorithm:
 
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+#define MAX 5
+
+float queue[MAX];
+int front = 0;
+int rear = -1;
+
+void enqueue(float value) {
+    if (rear == MAX - 1) {
+        printf("Queue Overflow\n");
+        return;
+    }
+
+    queue[++rear] = value;
+    printf("%.2f inserted into queue\n", value);
+}
+
+int main() {
+    float value;
+
+    printf("Enter element to insert: ");
+    scanf("%f", &value);
+
+    enqueue(value);
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+<img width="402" height="76" alt="image" src="https://github.com/user-attachments/assets/56bc62a6-c0a1-4da6-a66f-edc3c3bfa0aa" />
+
 
 Result:
 Thus, the program to insert elements in queue using array is verified successfully.
@@ -121,11 +249,52 @@ o	After deletion, check if the front pointer has passed the rear pointer (front 
 
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+#define MAX 5
+
+int queue[MAX] = {10, 20, 30, 40};
+int front = 0;
+int rear = 3;
+
+void deleteElement() {
+    if (front == -1 || front > rear) {
+        printf("Queue is empty\n");
+        return;
+    }
+
+    printf("Deleted element: %d\n", queue[front]);
+
+    front++;
+
+    if (front > rear) {
+        front = -1;
+        rear = -1;
+    }
+}
+
+int main() {
+    deleteElement();
+
+    printf("Queue elements after deletion:\n");
+
+    if (front == -1)
+        printf("Queue is empty\n");
+    else {
+        for (int i = front; i <= rear; i++)
+            printf("%d ", queue[i]);
+        printf("\n");
+    }
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+![Uploading image.png…]()
+
 
 
 Result:
