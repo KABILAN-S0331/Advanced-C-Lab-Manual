@@ -12,10 +12,38 @@ Algorithm:
 5.	Call the max_of_four function with the input integers and store the result in the greater variable
  
 Program:
-//type your code here
+```
+#include <stdio.h>
+
+int max_of_four(int a, int b, int c, int d) {
+    int max = a;
+
+    if (b > max)
+        max = b;
+    if (c > max)
+        max = c;
+    if (d > max)
+        max = d;
+
+    return max;
+}
+
+int main() {
+    int n1, n2, n3, n4, greater;
+
+    scanf("%d %d %d %d", &n1, &n2, &n3, &n4);
+
+    greater = max_of_four(n1, n2, n3, n4);
+
+    printf("%d", greater);
+
+    return 0;
+}
+```
 
 Output:
-//paste your output here
+<img width="427" height="61" alt="image" src="https://github.com/user-attachments/assets/dd21159c-1f23-4865-a40c-f28c32264786" />
+
 
 Result:
 Thus, the program  that create a function to find the greatest number is verified successfully.
@@ -36,10 +64,48 @@ Algorithm:
 7.	Call the calculate_the_max function with input values.
  
 Program:
-//type your code here
+```
+#include <stdio.h>
+
+void calculate_the_max(int n, int k) {
+    int a = 0, o = 0, x = 0;
+    int i, j, value;
+
+    for (i = 1; i <= n; i++) {
+        for (j = i + 1; j <= n; j++) {
+            value = i & j;
+            if (value < k && value > a)
+                a = value;
+
+            value = i | j;
+            if (value < k && value > o)
+                o = value;
+
+            value = i ^ j;
+            if (value < k && value > x)
+                x = value;
+        }
+    }
+
+    printf("%d\n", a);
+    printf("%d\n", o);
+    printf("%d\n", x);
+}
+
+int main() {
+    int n, k;
+
+    scanf("%d %d", &n, &k);
+
+    calculate_the_max(n, k);
+
+    return 0;
+}
+```
 
 Output:
-//paste your output here
+<img width="337" height="112" alt="image" src="https://github.com/user-attachments/assets/116bcbfb-1995-4544-9629-cb7368257e16" />
+
 
 Result:
 Thus, the program to print the maximum values for the AND, OR and XOR comparisons
@@ -59,10 +125,48 @@ Algorithm:
 5.	Use a for loop to iterate over the queries.
  
 Program:
-//type your code here
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int noshel, noque;
+    int **shelarr;
+    int *nobookarr;
+    int i, type, x, y;
+
+    scanf("%d %d", &noshel, &noque);
+
+    shelarr = (int **)calloc(noshel, sizeof(int *));
+    nobookarr = (int *)calloc(noshel, sizeof(int));
+
+    for (i = 0; i < noque; i++) {
+        scanf("%d %d %d", &type, &x, &y);
+
+        if (type == 1) {
+            shelarr[x] = realloc(shelarr[x], (nobookarr[x] + 1) * sizeof(int));
+            shelarr[x][nobookarr[x]] = y;
+            nobookarr[x]++;
+        } else if (type == 2) {
+            printf("%d\n", shelarr[x][y]);
+        } else if (type == 3) {
+            printf("%d\n", nobookarr[x]);
+        }
+    }
+
+    for (i = 0; i < noshel; i++)
+        free(shelarr[i]);
+
+    free(shelarr);
+    free(nobookarr);
+
+    return 0;
+}
+```
 
 Output:
-//paste your output here
+<img width="442" height="203" alt="image" src="https://github.com/user-attachments/assets/8cbf7d8d-0358-4335-abb5-d7ded9f51737" />
+
 
 
 Result:
@@ -86,10 +190,29 @@ Algorithm:
 
 
 Program:
-//type your code here
+```
+#include <stdio.h>
+
+int main() {
+    int n, i, sum = 0;
+    int a[100];
+
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+        sum += a[i];
+    }
+
+    printf("%d", sum);
+
+    return 0;
+}
+```
 
 Output:
-//paste your output here
+<img width="322" height="81" alt="image" src="https://github.com/user-attachments/assets/d9606f34-14ca-4176-821e-ad1fa0cb7ad0" />
+
 
  
 
@@ -99,7 +222,7 @@ Thus, the program prints the sum of the integers in the array is verified succes
 
 
  
-EXP NO 25: C PROGRAM TO COUNT THE NUMBER OF WORDS IN A      SENTENCE
+EXP NO 25: C PROGRAM TO COUNT THE NUMBER OF WORDS IN A  SENTENCE
 
 
 
@@ -120,10 +243,34 @@ o	If a character is not a space, it may belong to a word. If it's the first non-
 
 
 Program:
-//type your code here
+```
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char sentence[200];
+    int i, count = 0, inWord = 0;
+
+    fgets(sentence, sizeof(sentence), stdin);
+
+    for (i = 0; sentence[i] != '\0'; i++) {
+        if (isspace(sentence[i])) {
+            inWord = 0;
+        } else if (!inWord) {
+            count++;
+            inWord = 1;
+        }
+    }
+
+    printf("%d", count);
+
+    return 0;
+}
+```
 
 Output:
-//paste your output here
+<img width="410" height="72" alt="image" src="https://github.com/user-attachments/assets/a655e9b5-89dc-48c4-8db4-1df782125cc0" />
+
 
 
 
