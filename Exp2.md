@@ -13,14 +13,43 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+struct numbers {
+    int a;
+    int b;
+};
+
+struct numbers add(struct numbers n) {
+    n.a = n.a + n.b;
+    return n;
+}
+
+int main() {
+    struct numbers n, result;
+
+    printf("Enter value of a: ");
+    scanf("%d", &n.a);
+
+    printf("Enter value of b: ");
+    scanf("%d", &n.b);
+
+    result = add(n);
+
+    printf("Sum = %d\n", result.a);
+
+    return 0;
+}
+```
 
 
 
 
 Output:
 
-//paste your output screenshots here
+<img width="382" height="87" alt="image" src="https://github.com/user-attachments/assets/f0db99af-71f6-44f7-a1f2-19c330294281" />
+
 
 
 
