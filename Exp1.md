@@ -16,12 +16,40 @@ Else
  
 Program:
 
-// Type your code here
+```
+#include <stdio.h>
+
+struct eligible {
+    int age;
+    char n[50];
+};
+
+int main() {
+    struct eligible e;
+
+    printf("Enter age: ");
+    scanf("%d", &e.age);
+
+    printf("Enter name: ");
+    scanf("%s", e.n);
+
+    if (e.age <= 6)
+        printf("Vaccine Eligibility: No\n");
+    else
+        printf("Vaccine Eligibility: Yes\n");
+
+    printf("Age: %d\n", e.age);
+    printf("Name: %s\n", e.n);
+
+    return 0;
+}
+```
 
 
 Output:
 
-// paste the output screenshot
+<img width="472" height="154" alt="image" src="https://github.com/user-attachments/assets/db74639c-a60d-4a38-a459-09dbbdc8f7d4" />
+
 
 
 Result:
